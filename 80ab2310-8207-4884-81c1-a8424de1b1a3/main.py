@@ -20,7 +20,11 @@ class TradingStrategy(Strategy):
 
    def run(self, data):
       if len(data['ohlcv']) < 2:
-         return None
+         if self.equal_weighting: 
+            allocation_dict = {i: 1/len(self.tickers) for i in self.tickers}
+         else:
+            allocation_dict = {self.tickers[i]: self.weights[i] for i in range(len(self.tickers))} 
+         return TargetAllocation(allocation_dict)
 
       today = datetime.strptime(str(next(iter(data['ohlcv'][-1].values()))['date']), '%Y-%m-%d %H:%M:%S')
       yesterday = datetime.strptime(str(next(iter(data['ohlcv'][-2].values()))['date']), '%Y-%m-%d %H:%M:%S')
