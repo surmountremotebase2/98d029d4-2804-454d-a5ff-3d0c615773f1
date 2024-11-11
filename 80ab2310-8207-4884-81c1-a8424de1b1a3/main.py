@@ -19,8 +19,8 @@ class TradingStrategy(Strategy):
       return self.tickers
 
    def run(self, data):
-      #today = datetime.strptime(str(next(iter(data['ohlcv'][-1].values()))['date']), '%Y-%m-%d %H:%M:%S')
-      #yesterday = datetime.strptime(str(next(iter(data['ohlcv'][-2].values()))['date']), '%Y-%m-%d %H:%M:%S')
+      today = datetime.strptime(str(next(iter(data['ohlcv'][-1].values()))['date']), '%Y-%m-%d %H:%M:%S')
+      yesterday = datetime.strptime(str(next(iter(data['ohlcv'][-2].values()))['date']), '%Y-%m-%d %H:%M:%S')
       
       if today.day == 12 or (today.day > 12 and yesterday.day < 12):
          if self.equal_weighting: 
