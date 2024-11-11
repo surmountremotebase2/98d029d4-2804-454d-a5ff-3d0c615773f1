@@ -5,8 +5,8 @@ from datetime import datetime
 class TradingStrategy(Strategy):
 
    def __init__(self):
-      self.tickers = ["ENPH", "MCHP", "GOOGL", "KLAC"]
-      self.weights = [0.39, 0.47, 0.07, 0.07]
+      self.tickers = ["PDD", "BABA", "PBR", "BACHY", "NTES", "JD", "MPNGY", "UMC", "TSM", "TCEHY", "BCH", "SKM", "GGB", "SQM", "CSAN"]
+      self.weights = [0.15, 0.14, 0.11, 0.09, 0.09, 0.07, 0.05, 0.05, 0.05, 0.04, 0.04, 0.03, 0.03, 0.03, 0.03]
       self.equal_weighting = False
       self.counter = 0
 
